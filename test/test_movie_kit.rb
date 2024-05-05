@@ -7,7 +7,7 @@ class TestMovieKit < Minitest::Test
     refute_nil ::MovieKit::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_that_initializing_cinemeta
+    refute_nil MovieKit::Cinemeta::API.new
   end
 end
