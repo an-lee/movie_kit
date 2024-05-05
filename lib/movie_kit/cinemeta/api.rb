@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Dir[File.join(__dir__, "api", "*.rb")].each { |file| require file }
+
 module MovieKit
   module Cinemeta
     class API
@@ -10,7 +12,7 @@ module MovieKit
 
       def initialize(debug: false)
         @conn =
-          Faraday.new(url: "https://v3-MovieKit::Cinemeta.strem.io") do |f|
+          Faraday.new(url: "https://v3-cinemeta.strem.io") do |f|
             f.request :json
             f.request :retry
             f.response :json

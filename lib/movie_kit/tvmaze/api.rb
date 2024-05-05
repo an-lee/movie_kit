@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Dir[File.join(__dir__, "api", "*.rb")].each { |file| require file }
+
 module MovieKit
   module Tvmaze
     class API

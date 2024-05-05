@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Dir[File.join(__dir__, "api", "*.rb")].each { |file| require file }
+
 module MovieKit
   module Tmdb
     class API
@@ -28,7 +30,7 @@ module MovieKit
 
       attr_reader :conn
 
-      def initialize(access_token, debug: Rails.env.development?)
+      def initialize(access_token, debug: false)
         @conn = Faraday.new(url: "https://api.themoviedb.org") do |f|
           f.request :json
           f.request :retry
